@@ -48,15 +48,21 @@ function FormSection({
 }) {
   return (
     <div className="mb-8">
-      <h3
-        className="font-body font-semibold text-sm uppercase tracking-widest mb-4 pb-2 border-b"
-        style={{
-          color: "oklch(0.38 0.07 210)",
-          borderColor: "oklch(0.38 0.07 210 / 0.2)",
-        }}
+      <div
+        className="flex items-center gap-3 mb-4 pb-2 border-b"
+        style={{ borderColor: "oklch(0.90 0.012 240)" }}
       >
-        {title}
-      </h3>
+        <div
+          className="w-1 h-4 rounded-full flex-shrink-0"
+          style={{ backgroundColor: "oklch(0.38 0.07 210)" }}
+        />
+        <h3
+          className="font-display font-semibold text-sm uppercase tracking-widest"
+          style={{ color: "oklch(0.27 0.06 252)" }}
+        >
+          {title}
+        </h3>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">{children}</div>
     </div>
   );
@@ -630,15 +636,21 @@ export default function IntakeFormSection() {
 
             {/* File Uploads */}
             <div className="mb-8">
-              <h3
-                className="font-body font-semibold text-sm uppercase tracking-widest mb-4 pb-2 border-b"
-                style={{
-                  color: "oklch(0.38 0.07 210)",
-                  borderColor: "oklch(0.38 0.07 210 / 0.2)",
-                }}
+              <div
+                className="flex items-center gap-3 mb-4 pb-2 border-b"
+                style={{ borderColor: "oklch(0.90 0.012 240)" }}
               >
-                Upload Files
-              </h3>
+                <div
+                  className="w-1 h-4 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: "oklch(0.38 0.07 210)" }}
+                />
+                <h3
+                  className="font-display font-semibold text-sm uppercase tracking-widest"
+                  style={{ color: "oklch(0.27 0.06 252)" }}
+                >
+                  Upload Files
+                </h3>
+              </div>
 
               {/* Photos */}
               <div className="mb-5">

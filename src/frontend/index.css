@@ -22,54 +22,60 @@
 /* ─── Design Tokens (OKLCH — raw L C H) ────────────────────── */
 @layer base {
   :root {
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
-    /* Brand palette */
-    /* Navy #1B2A4A  → oklch(0.27 0.06 252) */
-    /* Charcoal #2D3142 → oklch(0.25 0.04 270) */
-    /* Deep Teal #1A535C → oklch(0.38 0.07 210) */
-    /* Cream #F5F1EB → oklch(0.96 0.014 75) */
-    /* Muted Plum #6B4E71 → oklch(0.44 0.08 316) */
+    /* Brand palette — lighter, cleaner */
+    /* Navy #1B2A4A  → oklch(0.27 0.06 252) — used sparingly as accent text */
+    /* Steel Blue (light) → oklch(0.60 0.07 240) — mid-tone accent */
+    /* Deep Teal → oklch(0.38 0.07 210) — key accent color */
+    /* Teal Light → oklch(0.55 0.09 210) — icons/highlights */
+    /* Warm White → oklch(0.99 0.005 90) — primary bg */
+    /* Light Slate → oklch(0.96 0.010 240) — subtle section bg */
+    /* Plum → oklch(0.44 0.08 316) — CTA buttons only */
+    /* Plum Light → oklch(0.50 0.09 316) */
 
     --navy:          0.27 0.06 252;
-    --charcoal:      0.25 0.04 270;
     --teal:          0.38 0.07 210;
-    --cream:         0.96 0.014 75;
+    --teal-light:    0.55 0.09 210;
+    --steel:         0.60 0.07 240;
+    --warm-white:    0.99 0.005 90;
+    --light-slate:   0.96 0.010 240;
     --plum:          0.44 0.08 316;
     --plum-light:    0.50 0.09 316;
-    --white:         1 0 0;
+    --charcoal:      0.28 0.04 255;
+    --cream:         0.97 0.012 80;
 
-    /* Semantic tokens */
-    --background:         var(--cream);
+    /* Semantic tokens — light-first */
+    --background:         var(--warm-white);
     --foreground:         var(--charcoal);
 
-    --card:               0.98 0.008 75;
+    --card:               0.99 0.003 90;
     --card-foreground:    var(--charcoal);
 
-    --popover:            0.98 0.008 75;
+    --popover:            0.99 0.003 90;
     --popover-foreground: var(--charcoal);
 
-    /* Primary = Muted Plum */
-    --primary:            var(--plum);
-    --primary-foreground: var(--white);
+    /* Primary = Teal */
+    --primary:            var(--teal);
+    --primary-foreground: 0.99 0 0;
 
-    /* Secondary = Navy */
-    --secondary:          var(--navy);
-    --secondary-foreground: var(--white);
+    /* Secondary = light steel */
+    --secondary:          0.94 0.015 240;
+    --secondary-foreground: var(--navy);
 
-    --muted:              0.92 0.01 75;
-    --muted-foreground:   0.50 0.03 252;
+    --muted:              0.94 0.008 240;
+    --muted-foreground:   0.52 0.04 255;
 
-    /* Accent = Deep Teal */
+    /* Accent = Teal Light */
     --accent:             var(--teal);
-    --accent-foreground:  var(--white);
+    --accent-foreground:  0.99 0 0;
 
     --destructive:        0.577 0.245 27.325;
-    --destructive-foreground: var(--white);
+    --destructive-foreground: 0.99 0 0;
 
-    --border:             0.88 0.015 75;
-    --input:              0.88 0.015 75;
-    --ring:               var(--plum);
+    --border:             0.90 0.012 240;
+    --input:              0.90 0.012 240;
+    --ring:               var(--teal);
 
     --chart-1: 0.38 0.07 210;
     --chart-2: 0.44 0.08 316;
@@ -77,14 +83,14 @@
     --chart-4: 0.646 0.222 41.116;
     --chart-5: 0.6 0.118 184.704;
 
-    --sidebar:                     0.96 0.014 75;
+    --sidebar:                     0.97 0.010 240;
     --sidebar-foreground:          var(--charcoal);
-    --sidebar-primary:             var(--plum);
-    --sidebar-primary-foreground:  var(--white);
-    --sidebar-accent:              var(--teal);
-    --sidebar-accent-foreground:   var(--white);
-    --sidebar-border:              0.88 0.015 75;
-    --sidebar-ring:                var(--plum);
+    --sidebar-primary:             var(--teal);
+    --sidebar-primary-foreground:  0.99 0 0;
+    --sidebar-accent:              var(--teal-light);
+    --sidebar-accent-foreground:   0.99 0 0;
+    --sidebar-border:              0.90 0.012 240;
+    --sidebar-ring:                var(--teal);
   }
 
   * {
@@ -108,19 +114,15 @@
 
 /* ─── Utility Classes ───────────────────────────────────────── */
 @layer utilities {
-  .section-navy {
-    background-color: oklch(var(--navy));
-    color: oklch(var(--white));
+  /* Light sections */
+  .section-white {
+    background-color: oklch(var(--warm-white));
+    color: oklch(var(--charcoal));
   }
 
-  .section-charcoal {
-    background-color: oklch(var(--charcoal));
-    color: oklch(0.88 0.015 75);
-  }
-
-  .section-teal {
-    background-color: oklch(var(--teal));
-    color: oklch(var(--white));
+  .section-slate {
+    background-color: oklch(var(--light-slate));
+    color: oklch(var(--charcoal));
   }
 
   .section-cream {
@@ -128,9 +130,28 @@
     color: oklch(var(--charcoal));
   }
 
+  /* Accent section — teal, used once max */
+  .section-teal {
+    background-color: oklch(0.92 0.035 210);
+    color: oklch(var(--charcoal));
+  }
+
+  /* Dark section — navy, used for footer only */
+  .section-navy {
+    background-color: oklch(var(--navy));
+    color: oklch(0.92 0.01 90);
+  }
+
+  /* Keep for legacy compat */
+  .section-charcoal {
+    background-color: oklch(0.28 0.04 255);
+    color: oklch(0.88 0.015 75);
+  }
+
+  /* CTA button */
   .btn-plum {
     background-color: oklch(var(--plum));
-    color: oklch(var(--white));
+    color: oklch(0.99 0 0);
     transition: background-color 0.2s ease;
   }
 
@@ -138,22 +159,35 @@
     background-color: oklch(var(--plum-light));
   }
 
+  /* Teal CTA (secondary button style) */
+  .btn-teal {
+    background-color: oklch(var(--teal));
+    color: oklch(0.99 0 0);
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-teal:hover {
+    background-color: oklch(var(--teal-light));
+  }
+
+  /* Text utilities */
   .text-teal {
     color: oklch(var(--teal));
+  }
+
+  .text-teal-light {
+    color: oklch(var(--teal-light));
   }
 
   .text-navy {
     color: oklch(var(--navy));
   }
 
-  .text-cream {
-    color: oklch(var(--cream));
-  }
-
   .text-plum {
     color: oklch(var(--plum));
   }
 
+  /* Background utilities */
   .bg-navy {
     background-color: oklch(var(--navy));
   }
@@ -162,15 +196,34 @@
     background-color: oklch(var(--teal));
   }
 
-  .bg-charcoal {
-    background-color: oklch(var(--charcoal));
+  .bg-teal-soft {
+    background-color: oklch(0.94 0.03 210);
+  }
+
+  .bg-plum {
+    background-color: oklch(var(--plum));
+  }
+
+  .bg-slate-soft {
+    background-color: oklch(var(--light-slate));
   }
 
   .bg-cream {
     background-color: oklch(var(--cream));
   }
 
-  .bg-plum {
-    background-color: oklch(var(--plum));
+  /* Card style */
+  .card-soft {
+    background-color: oklch(0.99 0.003 90);
+    border: 1px solid oklch(0.90 0.012 240);
+    border-radius: var(--radius);
+  }
+
+  /* Teal accent line */
+  .accent-bar {
+    width: 3rem;
+    height: 3px;
+    background-color: oklch(var(--teal));
+    border-radius: 9999px;
   }
 }

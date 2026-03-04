@@ -13,7 +13,7 @@ export default function HeroSection() {
       data-ocid="hero.section"
       className="relative min-h-screen flex items-center justify-center"
     >
-      {/* Background image with navy overlay */}
+      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -21,52 +21,56 @@ export default function HeroSection() {
         }}
         aria-hidden="true"
       />
+      {/* Lighter teal-tinted overlay — just enough to ensure legibility */}
       <div
         className="absolute inset-0"
-        style={{ backgroundColor: "oklch(0.27 0.06 252 / 0.72)" }}
+        style={{ backgroundColor: "oklch(0.27 0.06 252 / 0.52)" }}
         aria-hidden="true"
       />
 
-      {/* Subtle texture overlay */}
+      {/* Soft gradient lift at bottom for smooth transition to white nav / next section */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 30% 50%, oklch(0.38 0.07 210 / 0.3) 0%, transparent 60%), radial-gradient(circle at 70% 20%, oklch(0.44 0.08 316 / 0.15) 0%, transparent 50%)",
+          background:
+            "linear-gradient(to bottom, transparent, oklch(0.27 0.06 252 / 0.15))",
         }}
         aria-hidden="true"
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+          {/* Eyebrow pill */}
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/30 bg-white/15 backdrop-blur-sm">
             <div
-              className="w-1.5 h-1.5 rounded-full bg-teal"
-              style={{ backgroundColor: "oklch(0.55 0.09 210)" }}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: "oklch(0.75 0.12 185)" }}
             />
-            <span className="text-white/80 text-xs font-body tracking-widest uppercase font-medium">
+            <span className="text-white/90 text-xs font-body tracking-widest uppercase font-medium">
               Pennsylvania Homeowners
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white leading-tight mb-6 max-w-3xl mx-auto">
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] font-semibold text-white leading-tight mb-6 max-w-3xl mx-auto">
             Not Sure If You Should File an Insurance Claim?{" "}
-            <span className="italic" style={{ color: "oklch(0.78 0.06 75)" }}>
+            <em
+              className="not-italic"
+              style={{ color: "oklch(0.88 0.10 185)" }}
+            >
               Get a Professional Damage Review First.
-            </span>
+            </em>
           </h1>
 
           {/* Subheadline */}
           <p
             className="font-body text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl mx-auto"
-            style={{ color: "oklch(0.88 0.015 75)" }}
+            style={{ color: "oklch(0.93 0.01 90)" }}
           >
             We help Pennsylvania homeowners make informed decisions before
             contacting their insurance company.
@@ -77,15 +81,40 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <Button
               size="lg"
               onClick={scrollToForm}
-              className="btn-plum text-white font-body font-medium text-base px-8 py-3.5 rounded-md h-auto border-0 shadow-lg"
+              className="btn-plum text-white font-body font-semibold text-base px-8 py-3.5 rounded-lg h-auto border-0 shadow-lg"
               data-ocid="hero.primary_button"
             >
               Submit Damage for Free Review
             </Button>
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.getElementById("how-it-works");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="font-body text-sm text-white/80 hover:text-white transition-colors flex items-center gap-1.5"
+            >
+              See how it works
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
           </motion.div>
 
           {/* Trust badges */}
@@ -93,13 +122,13 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mt-12"
+            className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mt-14"
           >
             {["PA Licensed", "No Upfront Fees", "Free Review"].map((badge) => (
               <div key={badge} className="flex items-center gap-2">
                 <svg
                   className="w-4 h-4 flex-shrink-0"
-                  style={{ color: "oklch(0.55 0.09 210)" }}
+                  style={{ color: "oklch(0.75 0.12 185)" }}
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   role="img"
@@ -111,7 +140,7 @@ export default function HeroSection() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-white/70 text-sm font-body">{badge}</span>
+                <span className="text-white/75 text-sm font-body">{badge}</span>
               </div>
             ))}
           </motion.div>
@@ -133,9 +162,9 @@ export default function HeroSection() {
             repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
           }}
-          className="w-5 h-8 rounded-full border border-white/30 flex items-start justify-center p-1"
+          className="w-5 h-8 rounded-full border border-white/25 flex items-start justify-center p-1"
         >
-          <div className="w-1 h-2 bg-white/50 rounded-full" />
+          <div className="w-1 h-2 bg-white/40 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

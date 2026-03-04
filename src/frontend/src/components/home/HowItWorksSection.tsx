@@ -30,7 +30,8 @@ export default function HowItWorksSection() {
     <section
       id="how-it-works"
       data-ocid="how_it_works.section"
-      className="section-cream py-20 lg:py-28"
+      className="py-20 lg:py-28"
+      style={{ backgroundColor: "oklch(0.97 0.012 80)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -47,20 +48,20 @@ export default function HowItWorksSection() {
           >
             Our Process
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy mb-4">
+          <h2
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold mb-4"
+            style={{ color: "oklch(0.27 0.06 252)" }}
+          >
             How It Works
           </h2>
-          <div
-            className="w-16 h-0.5 mx-auto"
-            style={{ backgroundColor: "oklch(0.38 0.07 210)" }}
-          />
+          <div className="accent-bar mx-auto" />
         </motion.div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 relative">
           {/* Connector line (desktop) */}
           <div
-            className="hidden md:block absolute top-14 left-1/3 right-1/3 h-0.5 opacity-20"
+            className="hidden md:block absolute top-12 left-[calc(33%+3rem)] right-[calc(33%+3rem)] h-px opacity-30"
             style={{ backgroundColor: "oklch(0.38 0.07 210)" }}
             aria-hidden="true"
           />
@@ -75,50 +76,38 @@ export default function HowItWorksSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative flex flex-col items-center text-center group"
+                className="relative flex flex-col items-center text-center bg-white rounded-2xl p-8 shadow-sm border"
+                style={{ borderColor: "oklch(0.90 0.012 240)" }}
               >
-                {/* Step badge + icon */}
-                <div className="relative mb-6">
-                  <div
-                    className="w-28 h-28 rounded-2xl flex flex-col items-center justify-center shadow-card relative overflow-hidden"
-                    style={{ backgroundColor: "oklch(0.27 0.06 252)" }}
-                  >
-                    <div
-                      className="absolute inset-0 opacity-20"
-                      style={{
-                        background:
-                          "radial-gradient(circle at 50% 0%, oklch(0.38 0.07 210 / 0.6), transparent 70%)",
-                      }}
-                    />
-                    <Icon
-                      className="w-7 h-7 text-white relative z-10 mb-1"
-                      strokeWidth={1.5}
-                    />
-                    <span
-                      className="font-display text-xs font-semibold relative z-10"
-                      style={{ color: "oklch(0.55 0.09 210)" }}
-                    >
-                      {step.number}
-                    </span>
-                  </div>
-                  {/* Step number badge */}
-                  <div
-                    className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold font-body shadow"
-                    style={{ backgroundColor: "oklch(0.38 0.07 210)" }}
-                  >
-                    {index + 1}
-                  </div>
+                {/* Step number badge */}
+                <div
+                  className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold font-body shadow-sm"
+                  style={{ backgroundColor: "oklch(0.44 0.08 316)" }}
+                >
+                  {index + 1}
+                </div>
+
+                {/* Icon circle */}
+                <div
+                  className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+                  style={{ backgroundColor: "oklch(0.94 0.028 210)" }}
+                >
+                  <Icon
+                    className="w-8 h-8"
+                    style={{ color: "oklch(0.38 0.07 210)" }}
+                    strokeWidth={1.5}
+                  />
                 </div>
 
                 <h3
-                  className="font-display text-xl font-semibold mb-3 leading-tight"
+                  className="font-display text-xl font-semibold mb-3 leading-snug"
                   style={{ color: "oklch(0.27 0.06 252)" }}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className="font-body text-sm leading-relaxed max-w-xs"
-                  style={{ color: "oklch(0.40 0.03 270)" }}
+                  className="font-body text-sm leading-relaxed"
+                  style={{ color: "oklch(0.45 0.03 255)" }}
                 >
                   {step.description}
                 </p>

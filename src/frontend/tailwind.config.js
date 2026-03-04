@@ -84,9 +84,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        card: "0 2px 16px rgba(27,42,74,0.08)",
-        "card-lg": "0 8px 40px rgba(27,42,74,0.12)",
+        xs: "0 1px 2px 0 rgba(0,0,0,0.04)",
+        card: "0 2px 12px rgba(27,42,74,0.06)",
+        "card-lg": "0 6px 32px rgba(27,42,74,0.10)",
       },
       keyframes: {
         "accordion-down": {

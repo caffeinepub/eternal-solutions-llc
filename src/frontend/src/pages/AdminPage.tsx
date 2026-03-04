@@ -385,22 +385,32 @@ export default function AdminPage() {
     return (
       <div
         className="min-h-screen flex items-center justify-center p-4"
-        style={{ backgroundColor: "oklch(0.27 0.06 252)" }}
+        style={{ backgroundColor: "oklch(0.96 0.010 240)" }}
       >
         <div
-          className="w-full max-w-sm rounded-2xl p-8 shadow-card-lg"
-          style={{ backgroundColor: "oklch(0.32 0.05 265)" }}
+          className="w-full max-w-sm rounded-2xl p-8 shadow-card-lg bg-white border"
+          style={{ borderColor: "oklch(0.90 0.012 240)" }}
         >
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-xl bg-plum/50 flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-7 h-7 text-white" strokeWidth={1.5} />
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
+              style={{ backgroundColor: "oklch(0.94 0.028 210)" }}
+            >
+              <Shield
+                className="w-7 h-7"
+                style={{ color: "oklch(0.38 0.07 210)" }}
+                strokeWidth={1.5}
+              />
             </div>
-            <h1 className="font-display text-2xl font-semibold text-white mb-1">
+            <h1
+              className="font-display text-2xl font-semibold mb-1"
+              style={{ color: "oklch(0.27 0.06 252)" }}
+            >
               Admin Login
             </h1>
             <p
               className="font-body text-sm"
-              style={{ color: "oklch(0.75 0.025 75)" }}
+              style={{ color: "oklch(0.50 0.04 255)" }}
             >
               Eternal Solutions LLC — Staff Portal
             </p>
@@ -422,7 +432,7 @@ export default function AdminPage() {
           </Button>
           <p
             className="font-body text-xs text-center mt-4"
-            style={{ color: "oklch(0.60 0.02 75)" }}
+            style={{ color: "oklch(0.60 0.03 255)" }}
           >
             For authorized staff only
           </p>
@@ -435,11 +445,19 @@ export default function AdminPage() {
     return (
       <div
         className="min-h-screen flex items-center justify-center"
-        style={{ backgroundColor: "oklch(0.27 0.06 252)" }}
+        style={{ backgroundColor: "oklch(0.96 0.010 240)" }}
       >
         <div className="text-center">
-          <Loader2 className="w-8 h-8 animate-spin text-white mx-auto mb-3" />
-          <p className="font-body text-white/60 text-sm">Verifying access...</p>
+          <Loader2
+            className="w-8 h-8 animate-spin mx-auto mb-3"
+            style={{ color: "oklch(0.38 0.07 210)" }}
+          />
+          <p
+            className="font-body text-sm"
+            style={{ color: "oklch(0.50 0.04 255)" }}
+          >
+            Verifying access...
+          </p>
         </div>
       </div>
     );
@@ -449,25 +467,29 @@ export default function AdminPage() {
     return (
       <div
         className="min-h-screen flex items-center justify-center p-4"
-        style={{ backgroundColor: "oklch(0.27 0.06 252)" }}
+        style={{ backgroundColor: "oklch(0.96 0.010 240)" }}
       >
         <div
-          className="w-full max-w-sm rounded-2xl p-8 text-center shadow-card-lg"
-          style={{ backgroundColor: "oklch(0.32 0.05 265)" }}
+          className="w-full max-w-sm rounded-2xl p-8 text-center shadow-card-lg bg-white border"
+          style={{ borderColor: "oklch(0.90 0.012 240)" }}
         >
-          <h1 className="font-display text-xl font-semibold text-white mb-2">
+          <h1
+            className="font-display text-xl font-semibold mb-2"
+            style={{ color: "oklch(0.27 0.06 252)" }}
+          >
             Access Denied
           </h1>
           <p
             className="font-body text-sm mb-6"
-            style={{ color: "oklch(0.72 0.025 75)" }}
+            style={{ color: "oklch(0.50 0.04 255)" }}
           >
             You don't have permission to access this dashboard.
           </p>
           <Button
             onClick={handleLogout}
             variant="outline"
-            className="w-full font-body border-white/20 text-white hover:bg-white/10"
+            className="w-full font-body"
+            style={{ borderColor: "oklch(0.90 0.012 240)" }}
           >
             <LogOut className="w-4 h-4 mr-2" />
             Logout
@@ -488,24 +510,31 @@ export default function AdminPage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header
-        className="sticky top-0 z-40 border-b"
-        style={{
-          backgroundColor: "oklch(0.27 0.06 252)",
-          borderColor: "oklch(0.35 0.05 265)",
-        }}
+        className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur-md"
+        style={{ borderColor: "oklch(0.90 0.012 240)" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-plum/60 flex items-center justify-center">
-              <Shield className="w-4 h-4 text-white" strokeWidth={1.5} />
+            <div
+              className="w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{ backgroundColor: "oklch(0.94 0.028 210)" }}
+            >
+              <Shield
+                className="w-4 h-4"
+                style={{ color: "oklch(0.38 0.07 210)" }}
+                strokeWidth={1.5}
+              />
             </div>
             <div>
-              <h1 className="font-display text-white text-sm font-semibold leading-none">
+              <h1
+                className="font-display text-sm font-semibold leading-none"
+                style={{ color: "oklch(0.27 0.06 252)" }}
+              >
                 Intake Submissions Dashboard
               </h1>
               <p
                 className="font-body text-xs"
-                style={{ color: "oklch(0.65 0.025 75)" }}
+                style={{ color: "oklch(0.55 0.04 255)" }}
               >
                 Eternal Solutions LLC
               </p>
@@ -515,7 +544,8 @@ export default function AdminPage() {
             onClick={handleLogout}
             size="sm"
             variant="ghost"
-            className="text-white/70 hover:text-white hover:bg-white/10 font-body"
+            className="font-body hover:bg-slate-50"
+            style={{ color: "oklch(0.45 0.04 255)" }}
           >
             <LogOut className="w-4 h-4 mr-2" />
             Logout
@@ -530,23 +560,30 @@ export default function AdminPage() {
             {
               label: "Total Submissions",
               value: totalCount,
-              color: "oklch(0.27 0.06 252)",
+              color: "oklch(0.38 0.07 210)",
+              bg: "oklch(0.94 0.028 210)",
             },
             {
               label: "Pending Review",
               value: pendingCount,
-              color: "oklch(0.72 0.18 75)",
+              color: "oklch(0.62 0.14 75)",
+              bg: "oklch(0.96 0.04 75)",
             },
             {
               label: "Qualified",
               value: qualifiedCount,
-              color: "oklch(0.52 0.15 150)",
+              color: "oklch(0.45 0.12 150)",
+              bg: "oklch(0.95 0.05 150)",
             },
           ].map((stat) => (
             <div
               key={stat.label}
               className="rounded-xl p-5 bg-white shadow-card border border-border"
             >
+              <div
+                className="w-8 h-1 rounded-full mb-3"
+                style={{ backgroundColor: stat.color }}
+              />
               <p className="font-body text-xs text-muted-foreground mb-1">
                 {stat.label}
               </p>
@@ -629,7 +666,7 @@ export default function AdminPage() {
                           variant="outline"
                           onClick={() => setSelectedSubmission(sub)}
                           className="font-body text-xs h-7 px-2.5"
-                          data-ocid={`admin.view_button.${index + 1}`}
+                          data-ocid={`admin.secondary_button.${index + 1}`}
                         >
                           <Eye className="w-3 h-3 mr-1.5" />
                           View
