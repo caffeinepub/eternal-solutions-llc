@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Font Faces ────────────────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens (OKLCH — raw L C H) ────────────────────── */
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Brand palette */
+    /* Navy #1B2A4A  → oklch(0.27 0.06 252) */
+    /* Charcoal #2D3142 → oklch(0.25 0.04 270) */
+    /* Deep Teal #1A535C → oklch(0.38 0.07 210) */
+    /* Cream #F5F1EB → oklch(0.96 0.014 75) */
+    /* Muted Plum #6B4E71 → oklch(0.44 0.08 316) */
+
+    --navy:          0.27 0.06 252;
+    --charcoal:      0.25 0.04 270;
+    --teal:          0.38 0.07 210;
+    --cream:         0.96 0.014 75;
+    --plum:          0.44 0.08 316;
+    --plum-light:    0.50 0.09 316;
+    --white:         1 0 0;
+
+    /* Semantic tokens */
+    --background:         var(--cream);
+    --foreground:         var(--charcoal);
+
+    --card:               0.98 0.008 75;
+    --card-foreground:    var(--charcoal);
+
+    --popover:            0.98 0.008 75;
+    --popover-foreground: var(--charcoal);
+
+    /* Primary = Muted Plum */
+    --primary:            var(--plum);
+    --primary-foreground: var(--white);
+
+    /* Secondary = Navy */
+    --secondary:          var(--navy);
+    --secondary-foreground: var(--white);
+
+    --muted:              0.92 0.01 75;
+    --muted-foreground:   0.50 0.03 252;
+
+    /* Accent = Deep Teal */
+    --accent:             var(--teal);
+    --accent-foreground:  var(--white);
+
+    --destructive:        0.577 0.245 27.325;
+    --destructive-foreground: var(--white);
+
+    --border:             0.88 0.015 75;
+    --input:              0.88 0.015 75;
+    --ring:               var(--plum);
+
+    --chart-1: 0.38 0.07 210;
+    --chart-2: 0.44 0.08 316;
+    --chart-3: 0.27 0.06 252;
+    --chart-4: 0.646 0.222 41.116;
+    --chart-5: 0.6 0.118 184.704;
+
+    --sidebar:                     0.96 0.014 75;
+    --sidebar-foreground:          var(--charcoal);
+    --sidebar-primary:             var(--plum);
+    --sidebar-primary-foreground:  var(--white);
+    --sidebar-accent:              var(--teal);
+    --sidebar-accent-foreground:   var(--white);
+    --sidebar-border:              0.88 0.015 75;
+    --sidebar-ring:                var(--plum);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", Georgia, serif;
+  }
+}
+
+/* ─── Utility Classes ───────────────────────────────────────── */
+@layer utilities {
+  .section-navy {
+    background-color: oklch(var(--navy));
+    color: oklch(var(--white));
+  }
+
+  .section-charcoal {
+    background-color: oklch(var(--charcoal));
+    color: oklch(0.88 0.015 75);
+  }
+
+  .section-teal {
+    background-color: oklch(var(--teal));
+    color: oklch(var(--white));
+  }
+
+  .section-cream {
+    background-color: oklch(var(--cream));
+    color: oklch(var(--charcoal));
+  }
+
+  .btn-plum {
+    background-color: oklch(var(--plum));
+    color: oklch(var(--white));
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-plum:hover {
+    background-color: oklch(var(--plum-light));
+  }
+
+  .text-teal {
+    color: oklch(var(--teal));
+  }
+
+  .text-navy {
+    color: oklch(var(--navy));
+  }
+
+  .text-cream {
+    color: oklch(var(--cream));
+  }
+
+  .text-plum {
+    color: oklch(var(--plum));
+  }
+
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+
+  .bg-teal {
+    background-color: oklch(var(--teal));
+  }
+
+  .bg-charcoal {
+    background-color: oklch(var(--charcoal));
+  }
+
+  .bg-cream {
+    background-color: oklch(var(--cream));
+  }
+
+  .bg-plum {
+    background-color: oklch(var(--plum));
+  }
+}
